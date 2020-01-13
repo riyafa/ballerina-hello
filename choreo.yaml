@@ -1,12 +1,7 @@
-apiVersion: mesh.cellery.io/v1alpha2
-kind: Composite
-metadata:
-  name: stock-options
-  annotations:
-    mesh.cellery.io/cell-image-org: cellery-samples
-    mesh.cellery.io/cell-image-name: stock-options
-    mesh.cellery.io/cell-image-version: 1.0.0
-spec:
+deploy:
+ # This section directly maps to Cellery's K8s YAML and
+ # creates the Cellery composite underneath during the deployment.
+ k8s:
   components:
   - metadata:
       name: hello
