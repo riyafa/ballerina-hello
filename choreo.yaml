@@ -1,1 +1,23 @@
-port: 9090
+apiVersion: mesh.cellery.io/v1alpha2
+kind: Composite
+metadata:
+  name: stock-options
+  annotations:
+    mesh.cellery.io/cell-image-org: cellery-samples
+    mesh.cellery.io/cell-image-name: stock-options
+    mesh.cellery.io/cell-image-version: 1.0.0
+spec:
+  components:
+  - metadata:
+      name: hello
+    spec:
+      template:
+        containers:
+        - image: docker.io/wso2cellery/samples-hello-world-api-service
+          name: hello
+          ports:
+           - containerPort: 9090
+      ports:
+      - port: 80
+        protocol: HTTP
+        targetPort: 9090
